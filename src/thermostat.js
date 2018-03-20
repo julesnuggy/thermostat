@@ -14,6 +14,7 @@ function Thermostat() {
 
 Thermostat.prototype.reset = function() {
   this.temp = 20
+  this.energyUsageCheck()
 };
 
 Thermostat.prototype.powerSaveMode = function(bool) {
