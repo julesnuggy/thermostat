@@ -1,0 +1,17 @@
+body.test {
+ color: green;
+}
+
+
+a.test {
+  color: orange;
+}
+
+
+a.not {
+  color: purple;
+}
+
+h2.message {
+  color: red;
+}
