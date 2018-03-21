@@ -1,62 +1,62 @@
 function Thermostat() {
   this.temp = 20;
-
-  this.powerSave = true
+  this.minTemp = 10;
+  this.maxTemp = 25;
+  this.powerSave = true;
   this.energyUsage = "medium-usage";
-
-  if (this.powerSave) {
-    this.maxTemp = 25
-  } else {
-    this.maxTemp = 32
-  }
-
+  this.message = "That's a goooood temperature";
 };
 
 Thermostat.prototype.reset = function() {
-  this.temp = 20
-  this.energyUsageCheck()
+  this.temp = 20;
+  this.energyUsageCheck();
+  this.message = "Thermometer reset";
 };
 
-Thermostat.prototype.powerSaveMode = function(bool) {
-  if (bool) {
-    this.powerSave = true
+Thermostat.prototype.powerSaveMode = function() {
+  if (this.powerSave === true) {
+    this.powerSave = false;
+    this.maxTemp = 32;
   } else {
-    this.powerSave = false
+    this.powerSave = true;
+    this.maxTemp = 25;
   }
 };
 
 Thermostat.prototype.up = function(number) {
+  var result = this.temp + number;
 
-  result = this.temp + number
-
-  if (result > this.maxTemp) {
-    return "Max temp reached";
-  } else {
-    this.temp += number;
+  try {
+    if (result > this.maxTemp) throw "TOO HOT!";
+    if (this.temp += number) throw "That's a goooood temperature";
+  }
+  catch(err) {
+    this.message = err;
   }
 
-  this.energyUsageCheck()
+  this.energyUsageCheck();
 };
 
 Thermostat.prototype.down = function(number) {
+  result = this.temp - number;
 
-  result = this.temp - number
-
-  if (result < 10) {
-    return "Minimum temp reached"
-  } else {
-    this.temp -= number;
+  try {
+    if (result < this.minTemp) throw "Too coooooold!";
+    if (this.temp -= number) throw "That's a goooood temperature";
+  }
+  catch(err) {
+    this.message = err;
   }
 
-  this.energyUsageCheck()
+  this.energyUsageCheck();
 };
 
 Thermostat.prototype.energyUsageCheck = function() {
   if (this.temp < 18) {
     this.energyUsage = "low-usage";
-  } else if (this.temp > 18 && this.temp < 25) {
+  } else if (this.temp >= 18 && this.temp < 25) {
     this.energyUsage = "medium-usage";
   } else {
     this.energyUsage = "high-usage";
   }
-}
+};
