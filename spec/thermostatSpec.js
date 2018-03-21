@@ -55,29 +55,29 @@ describe("Thermostat", function() {
   });
 
   describe("Enery Usage property:", function() {
-    it("is 'low-usage' when <18", function() {
+    it("is 'low' when <18", function() {
       thermostat.down(3);
-      expect(thermostat.energyUsage).toEqual("low-usage");
+      expect(thermostat.energyUsage).toEqual("low");
     });
 
-    it("is 'low-usage' when <18", function() {
+    it("is 'low' when <18", function() {
       thermostat.down(5);
-      expect(thermostat.energyUsage).toEqual("low-usage");
+      expect(thermostat.energyUsage).toEqual("low");
     });
 
-    it("is 'medium-usage' when 18<=temp<25", function() {
+    it("is 'medium' when 18<=temp<25", function() {
       thermostat.down(2)
-      expect(thermostat.energyUsage).toEqual("medium-usage");
+      expect(thermostat.energyUsage).toEqual("medium");
     });
 
-    it("is 'medium-usage' when 19<temp<25", function() {
+    it("is 'medium' when 19<temp<25", function() {
       thermostat.up(4)
-      expect(thermostat.energyUsage).toEqual("medium-usage");
+      expect(thermostat.energyUsage).toEqual("medium");
     });
 
-    it("is 'high-usage' when >=25", function() {
+    it("is 'high' when >=25", function() {
       thermostat.up(5);
-      expect(thermostat.energyUsage).toEqual("high-usage");
+      expect(thermostat.energyUsage).toEqual("high");
     });
   });
 

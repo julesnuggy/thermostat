@@ -3,7 +3,7 @@ function Thermostat() {
   this.minTemp = 10;
   this.maxTemp = 25;
   this.powerSave = true;
-  this.energyUsage = "medium-usage";
+  this.energyUsage = "medium";
   this.message = "That's a goooood temperature";
 };
 
@@ -53,10 +53,10 @@ Thermostat.prototype.down = function(number) {
 
 Thermostat.prototype.energyUsageCheck = function() {
   if (this.temp < 18) {
-    this.energyUsage = "low-usage";
+    this.energyUsage = "low";
   } else if (this.temp >= 18 && this.temp < 25) {
-    this.energyUsage = "medium-usage";
+    this.energyUsage = "medium";
   } else {
-    this.energyUsage = "high-usage";
+    this.energyUsage = "high";
   }
 };
