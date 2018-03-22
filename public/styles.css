@@ -1,11 +1,57 @@
-.low {
-  color: blue;
+.low, .true { color: green; }
+
+.medium { color: orange; }
+
+.high, .false { color: red; }
+
+
+div#main {
+  width: 400px;
+  height: 300px;
+  border: 2px solid grey;
+  border-radius: 5px;
 }
 
-.medium {
-  color: green;
+div#screen {
+  height: 160px;
+  margin: 25px;
+  padding: 10px;
+  background-color: #c4ecf3;
+  border-radius: 5px;
 }
 
-.high {
-  color: red;
+div#buttons {
+  margin: auto;
+  text-align: center;
+}
+
+p[name=screen_temp] {
+  font-size: 25px;
+  color: black;
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+p[name=screen_txt] {
+  font-size: 20px;
+  font-family: 'Dosis', sans-serif;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+p#message {
+  font-size: 20px;
+  color: dodgerblue;
+}
+
+button {
+  width: 70px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0px 10px;
+  font-size: 20px;
+  font-family: 'Dosis', sans-serif;
 }

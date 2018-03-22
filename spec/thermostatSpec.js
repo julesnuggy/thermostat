@@ -60,17 +60,12 @@ describe("Thermostat", function() {
       expect(thermostat.energyUsage).toEqual("low");
     });
 
-    it("is 'low' when <18", function() {
-      thermostat.down(5);
-      expect(thermostat.energyUsage).toEqual("low");
-    });
-
-    it("is 'medium' when 18<=temp<25", function() {
+    it("is 'medium' when 18", function() {
       thermostat.down(2)
       expect(thermostat.energyUsage).toEqual("medium");
     });
 
-    it("is 'medium' when 19<temp<25", function() {
+    it("is 'medium' when <25", function() {
       thermostat.up(4)
       expect(thermostat.energyUsage).toEqual("medium");
     });

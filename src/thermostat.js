@@ -10,7 +10,7 @@ function Thermostat() {
 Thermostat.prototype.reset = function() {
   this.temp = 20;
   this.energyUsageCheck();
-  this.message = "Thermometer reset";
+  this.message = "Thermostat reset";
 };
 
 Thermostat.prototype.powerSaveMode = function() {
