@@ -9,6 +9,7 @@ function Thermostat() {
 
 Thermostat.prototype.reset = function() {
   this.temp = 20;
+  this.powerSave = true;
   this.energyUsageCheck();
   this.message = "Thermostat reset";
 };
@@ -20,6 +21,7 @@ Thermostat.prototype.powerSaveMode = function() {
   } else {
     this.powerSave = true;
     this.maxTemp = 25;
+    this.temp > this.maxTemp ? this.temp = this.maxTemp : this.temp
   }
 };
 

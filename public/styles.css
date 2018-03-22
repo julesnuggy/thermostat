@@ -1,9 +1,6 @@
-.low, .true { color: green; }
-
+.low { color: green;}
 .medium { color: orange; }
-
-.high, .false { color: red; }
-
+.high { color: red;}
 
 div#main {
   width: 400px;

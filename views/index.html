@@ -6,6 +6,8 @@
     <title>Thermostat</title>
 
     <script src="jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="../public/jquery.svg.css">
+    <script type="text/javascript" src="../public/jquery.svg.js"></script>
     <script src="../src/thermostatJQuery.js"></script>
     <script src="../src/thermostat.js"></script>
     <link rel="stylesheet" href="../public/styles.css">
@@ -17,7 +19,11 @@
     <div id="main">
       <div id="screen">
         <p id="current_temp" name="screen_temp"></p>
-        <p id="PSM_text" name="screen_txt" >Power Save: <span id="PSM_indicator"></span></p>
+        <p id="PSM_text" name="screen_txt" >Power Save:
+          <span id="PSM_indicator">
+            <svg id="PSM_dot"></svg>
+          </span>
+        </p>
         <p id="EU_text" name="screen_txt" >Energy Usage: <span id="EU_indicator"></span></p>
         <p id="message" name="screen_txt" ></p>
         <p id="weather" name="screen_txt" ></p>
@@ -29,7 +35,6 @@
         <button id="reset">Reset</button>
         <button id="PSM">PSM</button>
       </div>
-
     </div>
   </body>
 </html>

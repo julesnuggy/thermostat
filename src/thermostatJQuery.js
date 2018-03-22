@@ -3,14 +3,15 @@ $( document ).ready(function() {
     $( "p#current_temp").text("Current temp: " + thermostat.temp + "C");
     $( "span#EU_indicator").text(thermostat.energyUsage);
     $( "p#message").text(thermostat.message);
-    $( '#EU_indicator').attr('class', thermostat.energyUsage);
+    $( "#EU_indicator").attr("class", thermostat.energyUsage);
   };
 
   $( function() {
     $(  thermostat = new Thermostat() );
-    $( "p#current_temp").text(thermostat.temp + "C");
-    $( "span#PSM_indicator").text("@");
-    $( '#PSM_indicator').attr('class', thermostat.powerSave);
+    $( "p#current_temp"  ).text(thermostat.temp + "C");
+    $(  "svg#PSM_dot"  ).svg({onLoad: dot});
+    $(  "svg#PSM_dot"  ).attr("height", "10");
+    $(  "svg#PSM_dot"  ).attr("width", "10");
     show_temp_energy();
   });
 
@@ -26,11 +27,13 @@ $( document ).ready(function() {
 
   $( "button#PSM" ).click(function( ) {
     $(thermostat.powerSaveMode());
-    $( "p#PSM_indicator").text("Power Save: " + thermostat.powerSave);
+    update_dot();
+    show_temp_energy();
   });
 
   $( "button#reset" ).click(function( ) {
     $(thermostat.reset());
+    update_dot();
     show_temp_energy();
   });
 
@@ -45,7 +48,6 @@ $( document ).ready(function() {
         APPID: "0a783ed3b1845cc33e4045030a541008"
       },
       success: function(data) {
-        console.log(data);
         var cityName = data.name;
         var cityTemp = Math.round(data.main.temp - 273.15, 1);
         $( "p#weather" ).text(cityName + " temp: " + cityTemp + "C");
@@ -55,5 +57,15 @@ $( document ).ready(function() {
       }
     }); //end of Ajax code
   });
+
+  function dot(svg) {
+    svg.circle(5, 5, 5,
+        {fill: "green", id: "psm_svg_dot"});
+  }
+
+  function update_dot() {
+    var fill_col = (thermostat.powerSave ? "green" : "red");
+    $("#psm_svg_dot").attr({fill: fill_col});
+  }
 
 });
