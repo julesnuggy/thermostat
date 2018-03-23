@@ -1,14 +1,16 @@
 $( document ).ready(function() {
   function show_temp_energy() {
-    $( "p#current_temp").text("Current temp: " + thermostat.temp + "C");
+    $( "p#current_temp").text("Current temp: " + thermostat.temp + "CCC");
     $( "span#EU_indicator").text(thermostat.energyUsage);
     $( "p#message").text(thermostat.message);
     $( "#EU_indicator").attr("class", thermostat.energyUsage);
   };
 
+  var thermostat
+
   $( function() {
-    $(  thermostat = new Thermostat() );
-    $( "p#current_temp"  ).text(thermostat.temp + "C");
+    thermostat = thermostat || new Thermostat();
+    //$( "p#current_temp"  ).text(thermostat.temp + "C");
     $(  "svg#PSM_dot"  ).svg({onLoad: dot});
     $(  "svg#PSM_dot"  ).attr("height", "10");
     $(  "svg#PSM_dot"  ).attr("width", "10");
@@ -18,11 +20,13 @@ $( document ).ready(function() {
   $( "button#up" ).click(function( ) {
     $(thermostat.up(1));
     show_temp_energy();
+    getTemp('up', 'current_temp')
   });
 
   $( "button#down" ).click(function( ) {
     $(thermostat.down(1));
     show_temp_energy();
+    getTemp('down', 'current_temp')
   });
 
   $( "button#PSM" ).click(function( ) {
@@ -55,17 +59,24 @@ $( document ).ready(function() {
       error: function(data, textStatus, errorThrown) {
         console.log(textStatus);
       }
-    }); //end of Ajax code
+    });
   });
 
   function dot(svg) {
     svg.circle(5, 5, 5,
         {fill: "green", id: "psm_svg_dot"});
-  }
+  };
 
   function update_dot() {
     var fill_col = (thermostat.powerSave ? "green" : "red");
     $("#psm_svg_dot").attr({fill: fill_col});
+  };
+
+
+  function getTemp(btn_id, temp_id) {
+    var btn =  document.getElementById(btn_id);
+    var temp = document.getElementById(temp_id);
+    btn.value = temp.innerHTML;
   }
 
 });

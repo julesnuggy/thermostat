@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Thermostat</title>
+
+    <script src="/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.svg.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Krona+One|Lobster|Quicksand|Nunito|Dosis" rel="stylesheet">
+    <script type="text/javascript" src="/js/jquery.svg.js"></script>
+    <script src="/src/thermostatJQuery.js"></script>
+    <script src="/src/thermostat.js"></script>
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="screen">
+        <p id="current_temp" name="screen_temp"><%= @temp %></p>
+        <p id="PSM_text" name="screen_txt" >Power Save:
+          <span id="PSM_indicator">
+            <svg id="PSM_dot"></svg>
+          </span>
+        </p>
+        <p id="EU_text" name="screen_txt" >Energy Usage: <span id="EU_indicator"></span></p>
+        <p id="message" name="screen_txt" ></p>
+        <p id="weather" name="screen_txt" ></p>
+      </div>
+
+      <div id="buttons">
+        <form action="/temp" method="post">
+          <button id="up" name="temp">Up</button>
+          <button id="down" name="temp">Down</button>
+        </form>
+          <button id="reset">Reset</button>
+          <button id="PSM">PSM</button>
+
+        <form action="temp" method="get">
+          <button id="get_temp">Get Temp</button>
+          <p><%= @temp %></p>
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>
