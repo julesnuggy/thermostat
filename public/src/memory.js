@@ -2,10 +2,9 @@ function Memory($) {
   this._$ = $;
 };
 
-//Memory.prototype = {
   Memory.prototype.get_req = function(callback) {
     this._$.get("/memory", function(response) {
-      callback(response.temp);
+      callback(parseInt(response.temp));
     });
   };
 

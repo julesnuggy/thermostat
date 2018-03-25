@@ -9,7 +9,7 @@ class ThermostatApp < Sinatra::Base
   end
 
   get "/memory" do
-    temp = session[:temp]
+    temp = session[:temp] || 20
 
     content_type :json
     { temp: temp }.to_json

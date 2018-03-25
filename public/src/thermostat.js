@@ -1,10 +1,14 @@
 function Thermostat() {
-  this.temp = 20;
+  this.temp = 22;
   this.minTemp = 10;
   this.maxTemp = 25;
   this.powerSave = true;
   this.energyUsage = "medium";
   this.message = "That's a goooood temperature";
+};
+
+Thermostat.prototype.set_temp = function(temp) {
+  this.temp = temp;
 };
 
 Thermostat.prototype.reset = function() {
@@ -29,12 +33,12 @@ Thermostat.prototype.up = function(number) {
   var result = this.temp + number;
 
   try {
-    if (result > this.maxTemp) throw "TOO HOT!";
+    if (result > this.maxTemp) throw "TOO HOT! Max temp: " + this.maxTemp + "C";
     if (this.temp += number) throw "That's a goooood temperature";
   }
   catch(err) {
     this.message = err;
-  }
+  };
 
   this.energyUsageCheck();
 };
@@ -48,7 +52,7 @@ Thermostat.prototype.down = function(number) {
   }
   catch(err) {
     this.message = err;
-  }
+  };
 
   this.energyUsageCheck();
 };
@@ -60,5 +64,5 @@ Thermostat.prototype.energyUsageCheck = function() {
     this.energyUsage = "medium";
   } else {
     this.energyUsage = "high";
-  }
+  };
 };
