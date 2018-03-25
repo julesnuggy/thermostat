@@ -5,18 +5,17 @@ class ThermostatApp < Sinatra::Base
   enable :sessions
 
   get "/" do
-    @temp = session[:temp] || "Current temp: 20C"
     erb :index
   end
 
-  get "/temp" do
+  get "/memory" do
     temp = session[:temp]
 
     content_type :json
     { temp: temp }.to_json
   end
 
-  post "/temp" do
+  post "/memory" do
     session[:temp] = params[:temp]
     #session[:psm] = params[:psm]
   end

@@ -5,20 +5,22 @@
     <meta charset="utf-8">
     <title>Thermostat</title>
 
-    <script src="../public/js/jquery.js"></script>
-    <script src="../public/src/thermostatJQuery.js"></script>
-    <script src="../public/src/thermostat.js"></script>
-    <script src="../public/js/jquery.svg.js"></script>
-    <link rel="stylesheet" href="../public/css/jquery.svg.css">
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <script src="js/jquery.js"></script>
+    <script src="src/thermostat.js"></script>
+    <script src="src/memory.js"></script>
+    <script src="src/thermostatJQuery.js"></script>
+    <script src="js/jquery.svg.js"></script>
+    <link rel="stylesheet" href="css/jquery.svg.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Krona+One|Lobster|Quicksand|Nunito|Dosis">
+
 
   </head>
 
   <body>
     <div id="main">
       <div id="screen">
-        <p id="current_temp" name="screen_temp"></p>
+        <p id="current_temp" name="screen_temp">Current Temp: <span id="temp_num"></span>&#176;C</p>
         <p id="PSM_text" name="screen_txt" >Power Save:
           <span id="PSM_indicator">
             <svg id="PSM_dot"></svg>

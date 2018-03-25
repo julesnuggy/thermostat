@@ -1,14 +1,9 @@
 $( document ).ready(function() {
-  function show_temp_energy() {
-    $( "p#current_temp").text("Current temp: " + thermostat.temp + "C");
-    $( "span#EU_indicator").text(thermostat.energyUsage);
-    $( "p#message").text(thermostat.message);
-    $( "#EU_indicator").attr("class", thermostat.energyUsage);
-  };
-
   $( function() {
     $(  thermostat = new Thermostat() );
-    $( "p#current_temp"  ).text(thermostat.temp + "C");
+    $(  memory = new Memory($) );
+
+    $( "span#temp_num"  ).text(thermostat.temp);
     $(  "svg#PSM_dot"  ).svg({onLoad: dot});
     $(  "svg#PSM_dot"  ).attr("height", "10");
     $(  "svg#PSM_dot"  ).attr("width", "10");
@@ -17,7 +12,9 @@ $( document ).ready(function() {
 
   $( "button#up" ).click(function( ) {
     $(thermostat.up(1));
-    show_temp_energy();
+    $(memory.post_req(thermostat.temp, function() {
+      show_temp_energy();
+    }));
   });
 
   $( "button#down" ).click(function( ) {
@@ -37,6 +34,12 @@ $( document ).ready(function() {
     show_temp_energy();
   });
 
+  function show_temp_energy() {
+    $( "span#temp_num").text(thermostat.temp);
+    $( "span#EU_indicator").text(thermostat.energyUsage);
+    $( "p#message").text(thermostat.message);
+    $( "#EU_indicator").attr("class", thermostat.energyUsage);
+  };
 
   $( function getWeather(city) {
     $.ajax({
