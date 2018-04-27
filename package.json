@@ -1,0 +1,26 @@
+{
+  "name": "thermostat_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julesnuggy/thermostat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julesnuggy/thermostat/issues"
+  },
+  "homepage": "https://github.com/julesnuggy/thermostat#readme",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "svg.js": "^2.6.4"
+  }
+}
