@@ -1,7 +1,7 @@
 {
   "name": "thermostat_js",
   "version": "1.0.0",
-  "description": "",
+  "description": "Run `ruby app.rb` in bash to run app in localhost",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -22,5 +22,6 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "svg.js": "^2.6.4"
-  }
+  },
+  "devDependencies": {}
 }
