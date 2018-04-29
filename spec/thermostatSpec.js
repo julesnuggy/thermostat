@@ -44,13 +44,13 @@ describe("Thermostat", function() {
 
     it("limits the max temp to be 25 when on", function() {
       thermostat.up(10);
-      expect(thermostat.message).toEqual("TOO HOT!");
+      expect(thermostat.message).toEqual("TOO HOT! Max temp: 25C");
     });
 
     it("restores the standard max temp of 32 when off", function() {
       thermostat.powerSaveMode()
       thermostat.up(15)
-      expect(thermostat.message).toEqual("TOO HOT!");
+      expect(thermostat.message).toEqual("TOO HOT! Max temp: 32C");
     });
   });
 

@@ -22,4 +22,5 @@ This is a single page app which allows you to control your (fictional) thermosta
 * Boot the server: `$ ruby app.rb`
 * Open the localhost in your browser - by default this is usually http://localhost:4567 but check the port number displayed in your Terminal
 
-## Testing 
+## Testing
+* Feature and unit testing was done with Jasmine - to check the tests, open the SpecRunner.html file in your browser, which is located at this project's root directory.
