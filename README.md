@@ -3,6 +3,11 @@
 ## Introduction
 This is a single page app which allows you to control your (fictional) thermostat. It uses JavaScript and jQuery for the model / business logic, Ruby for the controller, and HTML / CSS for the views.
 
+The [original specification](OriginalSpecification.md) is contained in this project.
+
+## Screenshot
+[screenshot](https://github.com/julesnuggy/thermostat/tree/master/assets/images/thermostat_screenshot.png)
+
 ## Features
 * `Current temp` the current temperature the thermostat is set to.
 * `Power Save Mode` is toggled by the PSM button and controls the maximum temperature the thermostat can be set to:
