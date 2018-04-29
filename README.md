@@ -6,7 +6,7 @@ This is a single page app which allows you to control your (fictional) thermosta
 The [original specification](OriginalSpecification.md) is contained in this project.
 
 ## Screenshot
-[screenshot](https://github.com/julesnuggy/thermostat/tree/master/assets/images/thermostat_screenshot.png)
+![screenshot](assets/images/thermostat_screenshot.png)
 
 ## Features
 * `Current temp` the current temperature the thermostat is set to.
